@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="d3_json_styles.css" />
+    <link rel="stylesheet" type="text/css" href="easing.css" />
+
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="fullPage.js"></script>
+  </head>
+  <body>
+
+
+    <a id="servicios"></a>
+    <a id="galeria"></a>
+    <a id="contacto"></a>
+    <header class="nav">
+        <nav>
+            <ul>
+              <img id="logo" src="http://data.lohud.com/alice/usat_network_negative_clipped_black.png" style="zoom: 50%;"/>
+              <div id="nav_buttons">
+                <li class="nav_button"><a href="#servicios"> Overview </a> </li>
+                <li class="nav_button"><a href="#galeria">Search for your county</a> </li>
+                <li class="nav_button"><a href="#contacto">Interactive Map</a> </li>
+              </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main">
+        <article class="panel" id="servicios">
+          <div id="filler"></div>
+          <div id="headline">NY County Website Report Card</div>
+          <div id="chatter">
+            Reporters in the USA Today Network graded county websites for transparency. Websites were given scores out of 14.
+            Presence of budgets, meetings, information about officials, and public records were worth two points each.
+            Information about audits, lobbying, taxes and contracts were worth one point each.
+          </div>
+        </article>
+
+        <article class="panel" id="galeria">
+            <iframe src="http://data.lohud.com/AAB/build"></iframe>
+        </article>
+
+        <article class="panel" id="contacto">
+          <div id="embed">
+            <button id="zoom_in">+</button>
+            <button id="zoom_out">-</button>
+            <div id="the_map"><img id="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"></div>
+            <div id="legend"></div>
+            <div id="tooltip3"></div>
+          </div>
+        </article>
+    </section>
+
+
+
+
+    <div id="fullpage">
+    <div class="section">
+    <img id="logo" src="http://data.lohud.com/alice/usat_network_negative_clipped_black.png" style="zoom: 50%;"/>
+    </div>
+    <div class="section" id="section2">
+    <script src="calculateCollectiveScore.js"></script>
+
+    <script src="countiesObject.js"></script>
+    <script src="csvTransformer.js"></script>
+    <script src="colorScaleBuilder.js"></script>
+    <script src="legendBuilder.js"></script>
+
+    <script src="zooming.js"></script>
+    <script src="d3_map_setup.js"></script>
+    <script src="loadJSON.js"></script>
+    <script src="json_to_map.js"></script>
+    <script src="alterAndMapJson.js"></script>
+    <script>
+      alterAndMapJson(counties, 'green')
+    </script>
+  </div>
+</div>
+  </body>
+</html>
